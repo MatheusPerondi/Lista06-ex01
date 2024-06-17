@@ -16,6 +16,10 @@ public abstract class Product {
 
     protected abstract double calculatePrice();
 
+    protected abstract double calculateTransport();
+
+    protected abstract double calculateProfit();
+
 
 
     public String getName() {
