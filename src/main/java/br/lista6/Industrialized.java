@@ -1,51 +1,57 @@
 package br.lista6;
 
 public class Industrialized extends Product {
+    //a classe Industrialized extende a classe Product, herdando os parametros nome e valor, e os metodos abstratos que iremos implementar nessa classe, calculatePrice e calculateTransport.
 
+    //aqui deinimos as 3 margens de lucro possiveis.
     protected static final double PROFIT_LOW = 1.12;
     protected static final double PROFIT_MID = 1.105;
     protected static final double PROFIT_HIGH = 1.09;
 
+    //definimos aqui os impostos IPI e ICMS, os produtos agricolas não possuem esses impostos.
+    protected static final double IPI = 1.05;
+    protected static final double ICMS = 1.12;
 
-    protected static final double IPI = 0.05;
-    protected static final double ICMS = 0.12;
-
-    protected String name;
-    protected Double value;
-    protected double quantity;
+    //os pordutos industrializados serão contados por unidade, enquanto os agricolas é por KG.
+    protected double unity;
 
 
-    public Industrialized(String name, double value, double quantity) {
-        super(name, value, quantity);
+    public Industrialized(String name, double value, double unity) {
+        super(name, value);
+        this.unity = unity;
     }
 
-
+    //calculamos o preco da mesma forma que calculamos na classe Agricultural, a unica diferenca que aqui utilizamos o parametro uniti ao inves de KG.
     @Override
     protected double calculatePrice(){
-        if (quantity <= 50){
+        if (unity <= 50){
             return (value * PROFIT_LOW) + calculateTransport();
-        } else if (quantity <= 200) {
-            return (value * PROFIT_MID) + calculateTransport()
+        } else if (unity <= 200) {
+            return (value * PROFIT_MID) + calculateTransport();
         }else{
-            return (value * PROFIT_HIGH) + calculateTransport()
+            return (value * PROFIT_HIGH) + calculateTransport();
         }
     }
 
-
+    //calculamos o adicional de transporte da mesma forma, mas aqui utilizamos o parametro unity.
     protected double calculateTransport(){
-        if (quantity <= 50){
-            double additionalTransport = (0.35 * quantity);
-            return additionalTransport;
+        if (unity <= 50){
+            return (0.35 * unity);
 
-        } else if (quantity <= 200) {
-            double additionalTransport = (0.30 * quantity);
-            return additionalTransport;
+        } else if (unity <= 200) {
+            return (0.30 * unity);
 
         }else {
-            double additionalTransport = (0.25 * quantity)
-            return additionalTransport;
+            return (0.25 * unity);
         }
 
+    }
+
+    //aqui implementamos um metodo que não foi herdado da classe Product, pois os produtos industrializados possuem os impostos IPI e ICMS
+    //enquanto os produtos agricolas não.
+    //o metodo calculateFinalPrice calcula o preço final do produto levando em conta os impostos.
+    protected double calculateFinalPrice(){
+        return calculatePrice() * ICMS * IPI;
     }
 
 
@@ -57,8 +63,8 @@ public class Industrialized extends Product {
         return value;
     }
 
-    public double getQuantity() {
-        return quantity;
+    public double getUnity() {
+        return unity;
     }
 
     public void setName(String name) {
@@ -69,7 +75,7 @@ public class Industrialized extends Product {
         this.value = value;
     }
 
-    public void setQuantity(double quantity) {
-        this.quantity = quantity;
+    public void setUnity(double unity) {
+        this.unity = unity;
     }
 }

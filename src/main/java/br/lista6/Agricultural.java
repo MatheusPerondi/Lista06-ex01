@@ -2,34 +2,51 @@ package br.lista6;
 
 
 public class Agricultural extends Product{
+//a classe Agricultural extende a classe Product, herdando os parametros nome e valor, e os metodos abstratos que iremos implementar nessa classe, calculatePrice e calculateTransport.
 
+
+    //aqui deinimos as 3 margens de lucro possiveis.
     protected static final double PROFIT_LOW = 1.08;
     protected static final double PROFIT_MID = 1.05;
     protected static final double PROFIT_HIGH = 1.035;
 
-    protected String name;
-    protected Double value;
-    protected double quantity;
+    //para os produtos agricolas utilizaremos KG.
+    protected double kg;
 
-    public Agricultural(String name, double value, double quantity) {
-        super(name, value, quantity);
+    public Agricultural(String name, double value, double kg) {
+        super(name, value);
+        this.kg = kg;
     }
 
 
+    //agora vamos calcular o preço do produto.
+//para calcular vamos primeiro verifcar se o produto vai é menor ou igual a 100KG, menor ou igual a 200KG ou acima de 200KG, após verificar, vamos pegar o custo do produto
+//e multiplicar com a margem de lucro, que varia de acordo com os KG, depois vamos apenas somar o adicional de transporte.
     @Override
     protected double calculatePrice() {
-        if (quantity <= 100){
-            double additionalTransport = 0.10 * quantity;
+        if (kg <= 100){
+            return (value * PROFIT_LOW) + calculateTransport();
 
-            return (value * PROFIT_LOW) + additionalTransport;
-        } else if (quantity <= 200) {
-            double additionalTransport = 0.08 * quantity;
+        } else if (kg <= 200) {
+            return (value * PROFIT_MID) + calculateTransport();
 
-            return (value * PROFIT_MID) + additionalTransport;
         }else{
-            double additionalTransport = 0.05 * quantity;
+            return (value * PROFIT_HIGH) + calculateTransport();
+        }
+    }
 
-            return (value * PROFIT_HIGH) + additionalTransport;
+
+    //para calcular o adicional de transporte vamos primeiro veriicar se o produto é menor ou igual a 100, 200 ou mais, após isso vamos multiplicar o valor do adicional de transporte
+//de acordo com quantos KG o produto tem.
+    @Override
+    protected double calculateTransport() {
+        if (kg <= 100){
+            return (0.10 * kg);
+
+        } else if (kg <= 200) {
+            return (0.08 * kg);
+        }else{
+            return (0.05 * kg);
         }
     }
 
@@ -49,11 +66,5 @@ public class Agricultural extends Product{
         this.value = value;
     }
 
-    public double getQuantityIndustrialized() {
-        return quantity;
-    }
 
-    public void setQuantityIndustrialized(double quantityIndustrialized) {
-        this.quantity = quantityIndustrialized;
-    }
 }

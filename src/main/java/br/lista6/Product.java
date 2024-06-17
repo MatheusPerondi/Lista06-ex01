@@ -1,24 +1,24 @@
 package br.lista6;
 
 public abstract class Product {
-
-
-
+    //classe abstrata que servira de base para a classe dos produtos Agricolas e Industrializados.
     protected String name;
     protected double value;
-    protected double quantity;
 
-    public Product(String name, double value, double quantity) {
+//Todo produto tera um nome e um custo.
+
+    public Product(String name, double value) {
         this.name = name;
         this.value = value;
-        this.quantity = quantity;
+
     }
 
+    //Sabemos que os dois tipos de produtos precisarão de um metodo para calcular o preço e outro metodo para calcular o valor de transporte.
     protected abstract double calculatePrice();
 
     protected abstract double calculateTransport();
 
-    protected abstract double calculateProfit();
+
 
 
 
@@ -38,11 +38,5 @@ public abstract class Product {
         this.value = value;
     }
 
-    public double getQuantity() {
-        return quantity;
-    }
 
-    public void setQuantity(double quantity) {
-        this.quantity = quantity;
-    }
 }
