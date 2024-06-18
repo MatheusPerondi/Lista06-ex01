@@ -7,7 +7,7 @@ public class Agricultural extends Product{
 //a classe Agricultural extende a classe Product, herdando os parametros nome e valor, e os metodos abstratos que iremos implementar nessa classe, calculatePrice e calculateTransport.
 
 
-    //aqui deinimos as 3 margens de lucro possiveis.
+    //aqui definimos as 3 margens de lucro possiveis.
     protected static final double PROFIT_LOW = 1.08;
     protected static final double PROFIT_MID = 1.05;
     protected static final double PROFIT_HIGH = 1.035;
