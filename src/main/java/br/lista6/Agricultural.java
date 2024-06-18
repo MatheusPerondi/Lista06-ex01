@@ -1,6 +1,8 @@
 package br.lista6;
 
 
+import java.util.Comparator;
+
 public class Agricultural extends Product{
 //a classe Agricultural extende a classe Product, herdando os parametros nome e valor, e os metodos abstratos que iremos implementar nessa classe, calculatePrice e calculateTransport.
 
@@ -23,7 +25,7 @@ public class Agricultural extends Product{
 //para calcular vamos primeiro verifcar se o produto vai é menor ou igual a 100KG, menor ou igual a 200KG ou acima de 200KG, após verificar, vamos pegar o custo do produto
 //e multiplicar com a margem de lucro, que varia de acordo com os KG, depois vamos apenas somar o adicional de transporte.
     @Override
-    protected double calculatePrice() {
+    public double calculatePrice() {
         if (kg <= 100){
             return (value * PROFIT_LOW) + calculateTransport();
 
@@ -39,7 +41,7 @@ public class Agricultural extends Product{
     //para calcular o adicional de transporte vamos primeiro veriicar se o produto é menor ou igual a 100, 200 ou mais, após isso vamos multiplicar o valor do adicional de transporte
 //de acordo com quantos KG o produto tem.
     @Override
-    protected double calculateTransport() {
+    public double calculateTransport() {
         if (kg <= 100){
             return (0.10 * kg);
 
@@ -66,5 +68,14 @@ public class Agricultural extends Product{
         this.value = value;
     }
 
+
+    @Override
+    public String toString() {
+        return "Agricultural{" +
+                "kg=" + kg +
+                ", name='" + name + '\'' +
+                ", value=" + value +
+                '}';
+    }
 
 }
