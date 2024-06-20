@@ -1,7 +1,4 @@
-package br.lista6;
-
-import br.lista6.Agricultural;
-import com.sun.source.doctree.BlockTagTree;
+package br.lista6.ex01;
 
 import java.util.ArrayList;
 import java.util.List;

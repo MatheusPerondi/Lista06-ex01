@@ -1,9 +1,7 @@
-package br.lista6;
+package br.lista6.ex01;
 
 
-import java.util.Comparator;
-
-public class Agricultural extends Product{
+public class Agricultural extends Product {
 //a classe Agricultural extende a classe Product, herdando os parametros nome e valor, e os metodos abstratos que iremos implementar nessa classe, calculatePrice e calculateTransport.
 
 

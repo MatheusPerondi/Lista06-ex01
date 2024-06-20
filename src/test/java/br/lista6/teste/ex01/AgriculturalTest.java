@@ -1,6 +1,6 @@
+package br.lista6.teste.ex01;
 
-
-import br.lista6.Agricultural;
+import br.lista6.ex01.Agricultural;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

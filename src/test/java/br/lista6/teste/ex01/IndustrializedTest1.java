@@ -1,8 +1,8 @@
-
+package br.lista6.teste.ex01;
 
 import static org.junit.Assert.*;
 
-import br.lista6.Industrialized;
+import br.lista6.ex01.Industrialized;
 import org.junit.Before;
 import org.junit.Test;
 

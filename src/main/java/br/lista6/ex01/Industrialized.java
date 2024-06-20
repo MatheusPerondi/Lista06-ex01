@@ -1,4 +1,4 @@
-package br.lista6;
+package br.lista6.ex01;
 
 public class Industrialized extends Product {
     //a classe Industrialized extende a classe Product, herdando os parametros nome e valor, e os metodos abstratos que iremos implementar nessa classe, calculatePrice e calculateTransport.

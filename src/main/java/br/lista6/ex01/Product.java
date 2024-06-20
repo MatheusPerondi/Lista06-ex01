@@ -1,4 +1,4 @@
-package br.lista6;
+package br.lista6.ex01;
 
 public abstract class Product {
     //classe abstrata que servira de base para a classe dos produtos Agricolas e Industrializados.
