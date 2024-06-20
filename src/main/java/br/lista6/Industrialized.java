@@ -23,7 +23,7 @@ public class Industrialized extends Product {
 
     //calculamos o preco da mesma forma que calculamos na classe Agricultural, a unica diferenca que aqui utilizamos o parametro uniti ao inves de KG.
     @Override
-    public double calculatePrice(){
+    private double calculatePrice(){
         if (unity <= 50){
             return (value * PROFIT_LOW) + calculateTransport();
         } else if (unity <= 200) {
@@ -34,7 +34,7 @@ public class Industrialized extends Product {
     }
 
     //calculamos o adicional de transporte da mesma forma, mas aqui utilizamos o parametro unity.
-    private double calculateTransport(){
+    public double calculateTransport(){
         if (unity <= 50){
             return (0.35 * unity);
 
