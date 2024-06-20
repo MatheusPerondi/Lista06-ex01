@@ -34,7 +34,7 @@ public class Industrialized extends Product {
     }
 
     //calculamos o adicional de transporte da mesma forma, mas aqui utilizamos o parametro unity.
-    public double calculateTransport(){
+    private double calculateTransport(){
         if (unity <= 50){
             return (0.35 * unity);
 
